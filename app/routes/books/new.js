@@ -1,18 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-                                    model: function (params)
-                                    {
-                                      if(params.cloneid === "new")
-                                      {
-                                        return null;
-                                      }
-                                      else
-                                      {
-                                        return this.store.find('book', params.cloneid);
-                                      }
-                                    },
-
                                     actions: {
                                       createBook: function ()
                                       {

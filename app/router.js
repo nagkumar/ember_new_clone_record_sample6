@@ -11,7 +11,7 @@ Router.map(function ()
                            function ()
                            {
                              this.route('book', {path: "/:id"});
-                             this.route('new', {path: "/:cloneid"});
+                             this.route('new');
                            });
            });
 
