@@ -11,6 +11,7 @@ function fieldValue(name) {
     });
 }
 export default Ember.Controller.extend({
+  ref: "",
   title: fieldValue("title"),
   isbn: fieldValue("isbn"),
   pages: fieldValue("pages"),
