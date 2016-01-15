@@ -2,7 +2,10 @@ Here Are The List Of Books Fetched From The Server
 <ul>
   {{#each model as |book|}}
       <li>{{#link-to 'books.book' book}}{{{book.title}}}{{/link-to}}</li>
-      <button {{action 'go2New' book}}>Clone from This Record</button>
+      <li>
+          <button {{action 'go2New' book target="controllers.books/new"}}>Clone from This Record</button>
+      </li>
   {{/each}}
-    <button {{action 'go2New' null}}>Empty New</button>
 </ul>
+<br>
+<button {{action 'go2New' null target="controllers.books/new"}}>Empty New</button>

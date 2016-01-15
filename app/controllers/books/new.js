@@ -3,7 +3,7 @@ import Ember from 'ember';
 function fieldValue(name) {
   return Ember.computed('ref',
     function () {
-      var ref = this.controllerFor('books/new').get('ref');
+      var ref = this.ref;
       if (ref === null || ref === undefined) {
         return "";
       }
@@ -11,6 +11,7 @@ function fieldValue(name) {
     });
 }
 export default Ember.Controller.extend({
+  ref: "",
   title: fieldValue("title"),
   isbn: fieldValue("isbn"),
   pages: fieldValue("pages"),
@@ -19,5 +20,17 @@ export default Ember.Controller.extend({
   bio: fieldValue("bio"),
   name: fieldValue("name"),
   organizationName: fieldValue("organizationName"),
-  address: fieldValue("address")
+  address: fieldValue("address"),
+
+  actions: {
+    go2New: function (lbook) {
+      if (lbook !== null || lbook !== undefined) {
+        Ember.Logger.info(lbook);
+        this.set('ref', lbook);
+      }
+
+      this.transitionToRoute('books.new');
+      return false;
+    }
+  }
 });
